@@ -174,10 +174,11 @@ else
   JRE_IMAGE_HOMEDIR := $(JRE_IMAGE_DIR)
   JDK_BUNDLE_SUBDIR := sapmachine-jdk-$(VERSION_NUMBER)
   JRE_BUNDLE_SUBDIR := sapmachine-jre-$(VERSION_NUMBER)
-  ifneq ($(DEBUG_LEVEL), release)
-    JDK_BUNDLE_SUBDIR := $(JDK_BUNDLE_SUBDIR)/$(DEBUG_LEVEL)
-    JRE_BUNDLE_SUBDIR := $(JRE_BUNDLE_SUBDIR)/$(DEBUG_LEVEL)
-  endif
+  # SapMachine 22-05-24: Do not use debug level as bundle subdir in our special build
+  #ifneq ($(DEBUG_LEVEL), release)
+  #  JDK_BUNDLE_SUBDIR := $(JDK_BUNDLE_SUBDIR)/$(DEBUG_LEVEL)
+  #  JRE_BUNDLE_SUBDIR := $(JRE_BUNDLE_SUBDIR)/$(DEBUG_LEVEL)
+  #endif
   # In certain situations, the JDK_IMAGE_DIR points to an image without the
   # the symbols and demos. If so, the symobls and demos can be found in a
   # separate image. These variables allow for overriding from a custom makefile.
